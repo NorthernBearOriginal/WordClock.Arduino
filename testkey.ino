@@ -1,23 +1,19 @@
-// подключаем библиотеку для работы с матричной клавиатурой
-#include <AmperkaKB.h>
 
-// создаём объект для работы с матричной клавиатурой
-// указывая номера arduino подключенные к шлейфу клавиатуры
-// начиная с первого вывода шлейфа
+#include <AmperkaKB.h>   // подключаем библиотеку для работы с матричной клавиатурой
 AmperkaKB KB(2, 3, 4, 5, 6);
 
 int hours = 0;
 int minutes = 0;
 int seconds = 0;
-// создаем объект класса long для хранения счетчика
-long lastTime = 0;
-#define STRIP_PIN 13     // пин ленты
-#define NUMLEDS 42     // кол-во светодиодов
+
+long lastTime = 0;    // создаем объект класса long для хранения счетчика
+#define STRIP_PIN 13  // пин ленты (nano)
+#define NUMLEDS 42    // кол-во светодиодов 
 
 #define COLOR_DEBTH 3
 #include <microLED.h>   // подключаем библу ленты
 
-microLED<NUMLEDS, STRIP_PIN, MLED_NO_CLOCK, LED_WS2812, ORDER_GRB, CLI_AVER> strip;
+microLED<NUMLEDS, STRIP_PIN, MLED_NO_CLOCK, LED_WS2812, ORDER_GRB, CLI_AVER> strip;  //инициализация
 
 
 void setup()
@@ -57,16 +53,11 @@ void loop()
 
     // если нажимаем 1 то прибавляем минуту к таймеру
      if (KB.getNum == 1) {
-      Serial.print("add 5 min  ");
+      Serial.print("add 5 min  ");    
       minutes = minutes + 5;
       Serial.println(minutes);
       }
-  
-  
-  
-  
-  
-  }
+ }
 
 
 
@@ -74,7 +65,7 @@ if (seconds == 10)
 {  
   strip.clear(); ///обновляем ленту
    
-   strip.set(0, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+   strip.set(0, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
@@ -83,7 +74,7 @@ if (seconds == 20)
 {  
   strip.clear(); ///обновляем ленту
    
-   strip.set(1, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+   strip.set(1, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
@@ -92,7 +83,7 @@ if (seconds == 30)
 {  
   strip.clear(); ///обновляем ленту
    
-   strip.set(2, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+   strip.set(2, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
@@ -101,7 +92,7 @@ if (seconds == 40)
 {  
   strip.clear(); ///обновляем ленту
    
-   strip.set(3, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+   strip.set(3, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
@@ -110,7 +101,7 @@ if (seconds == 50)
 {  
   strip.clear(); ///обновляем ленту
    
-   strip.set(4, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+   strip.set(4, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
@@ -119,7 +110,7 @@ if (seconds == 0)
 {  
   strip.clear(); ///обновляем ленту
   
-  strip.set(5, mRGB(255, 0, 0));    // заливаем ~зелёным с 0 по 6: счёт идёт с 0, заливается до указанного -1
+  strip.set(5, mRGB(255, 0, 0));    
    strip.show();                     // выводим изменения
 
 }
